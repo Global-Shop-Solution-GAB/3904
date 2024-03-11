@@ -1,0 +1,4 @@
+CREATE TABLE "GCG_3904_WO_MAT_DESC"(
+ "Part" CHAR(20),
+ "Text_Seq" NUMERIC(8,0),
+ "Text_Line" CHAR(30));
