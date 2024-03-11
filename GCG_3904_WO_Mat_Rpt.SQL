@@ -1,0 +1,16 @@
+CREATE TABLE "GCG_3904_WO_Mat_Rpt"(
+ "Terminal" CHAR(3),
+ "Job" CHAR(6),
+ "Suffix" CHAR(3),
+ "Part" CHAR(20),
+ "Location" CHAR(2),
+ "Description" CHAR(30),
+ "Customer" CHAR(6),
+ "Seq" CHAR(6),
+ "P_ID_Num" CHAR(20),
+ "Qty_Open" NUMERIC(12,4),
+ "Lead_Time" NUMERIC(4,0),
+ "Mat_Part" CHAR(20),
+ "MFG_Part" CHAR(23),
+ "MFG_Name" CHAR(23),
+ "Mat_Part_Desc" CHAR(30));
