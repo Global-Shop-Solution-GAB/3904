@@ -1,0 +1,938 @@
+Program.Sub.ScreenSU.Start
+gui.SS_Form1..create
+gui.SS_Form1..caption("Work Order Material Sequence Report")
+gui.SS_Form1..size(6870,4665)
+gui.SS_Form1..position(0,0)
+gui.SS_Form1..event(unload,ss_form1_unload)
+gui.SS_Form1..alwaysontop(False)
+gui.SS_Form1..fontname("Arial")
+gui.SS_Form1..fontsize(8)
+gui.SS_Form1..forecolor(0)
+gui.SS_Form1..fontstyle(,,,,)
+gui.SS_Form1..BackColor(-2147483633)
+gui.SS_Form1..controlbox(True)
+gui.SS_Form1..maxbutton(False)
+gui.SS_Form1..minbutton(False)
+gui.SS_Form1..mousepointer(0)
+gui.SS_Form1..moveable(True)
+gui.SS_Form1..sizeable(False)
+gui.SS_Form1..ShowInTaskBar(True)
+gui.SS_Form1..titlebar(True)
+gui.SS_Form1.lbl_txtWOStart.create(label,"Beg Work Order",True,1800,200,1,100,135,True,0,Arial,8,-2147483633,0)
+gui.SS_Form1.lbl_txtWOStart.defaultvalue("")
+gui.SS_Form1.lbl_txtWOStart.controlgroup(0)
+gui.SS_Form1.txtWOStart.create(textbox,"",True,1800,330,0,100,335,True,0,Arial,8,16777215,1)
+gui.SS_Form1.txtWOStart.defaultvalue("")
+gui.SS_Form1.txtWOStart.controlgroup(1)
+gui.SS_Form1.cmd_txtWOStart.create(button)
+gui.SS_Form1.cmd_txtWOStart.caption("^")
+gui.SS_Form1.cmd_txtWOStart.visible(True)
+gui.SS_Form1.cmd_txtWOStart.size(330,330)
+gui.SS_Form1.cmd_txtWOStart.zorder(0)
+gui.SS_Form1.cmd_txtWOStart.position(1985,335)
+gui.SS_Form1.cmd_txtWOStart.enabled(True)
+gui.SS_Form1.cmd_txtWOStart.fontname("Arial")
+gui.SS_Form1.cmd_txtWOStart.fontsize(8)
+gui.SS_Form1.cmd_txtWOStart.event(click,cmd_txtwostart_click)
+gui.SS_Form1.cmd_txtWOStart.defaultvalue("")
+gui.SS_Form1.cmd_txtWOStart.controlgroup(0)
+gui.SS_Form1.lbl_txtWOEnd.create(label,"Ending Work Order",True,1800,200,1,2455,135,True,0,Arial,8,-2147483633,0)
+gui.SS_Form1.lbl_txtWOEnd.defaultvalue("")
+gui.SS_Form1.lbl_txtWOEnd.controlgroup(0)
+gui.SS_Form1.txtWOEnd.create(textbox,"",True,1800,330,0,2455,335,True,0,Arial,8,16777215,1)
+gui.SS_Form1.txtWOEnd.defaultvalue(" ")
+gui.SS_Form1.txtWOEnd.controlgroup(1)
+gui.SS_Form1.cmd_txtWOEnd.create(button)
+gui.SS_Form1.cmd_txtWOEnd.caption("^")
+gui.SS_Form1.cmd_txtWOEnd.visible(True)
+gui.SS_Form1.cmd_txtWOEnd.size(330,330)
+gui.SS_Form1.cmd_txtWOEnd.zorder(0)
+gui.SS_Form1.cmd_txtWOEnd.position(4340,335)
+gui.SS_Form1.cmd_txtWOEnd.enabled(True)
+gui.SS_Form1.cmd_txtWOEnd.fontname("Arial")
+gui.SS_Form1.cmd_txtWOEnd.fontsize(8)
+gui.SS_Form1.cmd_txtWOEnd.event(click,cmd_txtwoend_click)
+gui.SS_Form1.cmd_txtWOEnd.defaultvalue("")
+gui.SS_Form1.cmd_txtWOEnd.controlgroup(0)
+gui.SS_Form1.chkAllWO.create(checkbox)
+gui.SS_Form1.chkAllWO.caption("All Work Orders")
+gui.SS_Form1.chkAllWO.visible(True)
+gui.SS_Form1.chkAllWO.size(1485,300)
+gui.SS_Form1.chkAllWO.zorder(0)
+gui.SS_Form1.chkAllWO.position(4900,345)
+gui.SS_Form1.chkAllWO.enabled(True)
+gui.SS_Form1.chkAllWO.alignment(0)
+gui.SS_Form1.chkAllWO.fontname("Arial")
+gui.SS_Form1.chkAllWO.fontsize(8)
+gui.SS_Form1.chkAllWO.event(click,chkallwo_click)
+gui.SS_Form1.chkAllWO.defaultvalue("")
+gui.SS_Form1.chkAllWO.controlgroup(0)
+gui.SS_Form1.cmdAdd.create(button)
+gui.SS_Form1.cmdAdd.caption("Add")
+gui.SS_Form1.cmdAdd.visible(True)
+gui.SS_Form1.cmdAdd.size(1000,360)
+gui.SS_Form1.cmdAdd.zorder(0)
+gui.SS_Form1.cmdAdd.position(100,755)
+gui.SS_Form1.cmdAdd.enabled(True)
+gui.SS_Form1.cmdAdd.fontname("Arial")
+gui.SS_Form1.cmdAdd.fontsize(8)
+gui.SS_Form1.cmdAdd.event(click,cmdadd_click)
+gui.SS_Form1.cmdAdd.defaultvalue("")
+gui.SS_Form1.cmdAdd.controlgroup(2)
+gui.SS_Form1.cmdRemove.create(button)
+gui.SS_Form1.cmdRemove.caption("Remove")
+gui.SS_Form1.cmdRemove.visible(True)
+gui.SS_Form1.cmdRemove.size(1000,360)
+gui.SS_Form1.cmdRemove.zorder(0)
+gui.SS_Form1.cmdRemove.position(1185,755)
+gui.SS_Form1.cmdRemove.enabled(True)
+gui.SS_Form1.cmdRemove.fontname("Arial")
+gui.SS_Form1.cmdRemove.fontsize(8)
+gui.SS_Form1.cmdRemove.event(click,cmdremove_click)
+gui.SS_Form1.cmdRemove.defaultvalue("")
+gui.SS_Form1.cmdRemove.controlgroup(2)
+gui.SS_Form1.cmdClear.create(button)
+gui.SS_Form1.cmdClear.caption("Clear")
+gui.SS_Form1.cmdClear.visible(True)
+gui.SS_Form1.cmdClear.size(1000,360)
+gui.SS_Form1.cmdClear.zorder(0)
+gui.SS_Form1.cmdClear.position(2270,755)
+gui.SS_Form1.cmdClear.enabled(True)
+gui.SS_Form1.cmdClear.fontname("Arial")
+gui.SS_Form1.cmdClear.fontsize(8)
+gui.SS_Form1.cmdClear.event(click,cmdclear_click)
+gui.SS_Form1.cmdClear.defaultvalue("")
+gui.SS_Form1.cmdClear.controlgroup(2)
+gui.SS_Form1.lbl_lvwWORanges.create(label,"Work Order Ranges",True,1800,200,1,100,1225,True,0,Arial,8,-2147483633,0)
+gui.SS_Form1.lbl_lvwWORanges.defaultvalue("")
+gui.SS_Form1.lbl_lvwWORanges.controlgroup(0)
+gui.SS_Form1.lvwWORanges.create(listview)
+gui.SS_Form1.lvwWORanges.view(3)
+gui.SS_Form1.lvwWORanges.addlistviewcolumn("ID",0,0)
+gui.SS_Form1.lvwWORanges.addlistviewcolumn("Beginning Work Oder",3000,0)
+gui.SS_Form1.lvwWORanges.addlistviewcolumn("Ending Work Order",3000,0)
+gui.SS_Form1.lvwWORanges.visible(True)
+gui.SS_Form1.lvwWORanges.size(6085,2000)
+gui.SS_Form1.lvwWORanges.zorder(0)
+gui.SS_Form1.lvwWORanges.position(100,1470)
+gui.SS_Form1.lvwWORanges.enabled(True)
+gui.SS_Form1.lvwWORanges.fontname("Arial")
+gui.SS_Form1.lvwWORanges.fontsize(8)
+gui.SS_Form1.lvwWORanges.event(itemclick,lvwworanges_itemclick)
+gui.SS_Form1.cmdPrint.create(button)
+gui.SS_Form1.cmdPrint.caption("Print")
+gui.SS_Form1.cmdPrint.visible(True)
+gui.SS_Form1.cmdPrint.size(1000,360)
+gui.SS_Form1.cmdPrint.zorder(0)
+gui.SS_Form1.cmdPrint.position(100,3650)
+gui.SS_Form1.cmdPrint.enabled(True)
+gui.SS_Form1.cmdPrint.fontname("Arial")
+gui.SS_Form1.cmdPrint.fontsize(8)
+gui.SS_Form1.cmdPrint.event(click,cmdprint_click)
+gui.SS_Form1.cmdPrint.defaultvalue("")
+gui.SS_Form1.cmdPrint.controlgroup(2)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.iLVItem.Declare(Long,0)
+Variable.UDT.uJobHeader.Define("Part",String,Part)
+Variable.UDT.uJobHeader.Define("Part_Desc",String,Part_Description)
+Variable.UDT.uJobHeader.Define("Job",String,Job)
+Variable.UDT.uJobHeader.Define("Suffix",String,Suffix)
+Variable.UDT.uJobHeader.Define("Customer",String,Customer)
+Variable.UDT.uJobHeader.Define("Location",String,Location)
+Variable.uGlobal.uJobHeader.Declare("uJobHeader")
+Variable.UDT.uJobOperations.Define("Sequence",String,Seq)
+Variable.UDT.uJobOperations.Define("Part",String,Part)
+Variable.UDT.uJobOperations.Define("P_ID",String,Code_Sort_Oper)
+Variable.UDT.uJobOperations.Define("Lead_Time",Float,Lead_Time)
+Variable.UDT.uJobOperations.Define("Job",String,Job)
+Variable.UDT.uJobOperations.Define("Suffix",String,Suffix)
+Variable.UDT.uJobOperations.Define("Units_Open",Float,Units)
+Variable.UDT.uJobOperations.Define("MFG_Part",String,MFG_Part)
+Variable.UDT.uJobOperations.Define("MFG_Name",String,MFG_Name)
+Variable.UDT.uJobOperations.Define("Mat_Part_Desc",String,Description)
+Variable.UDT.uInvXref.Define("GS_Part",String,Part)
+Variable.UDT.uInvXref.Define("MFG_Name",String,MFG_Name)
+Variable.UDT.uInvXref.Define("MFG_Part",String,MFG_Part)
+Variable.uGlobal.uInvXRef.Declare("uInvXref")
+Variable.uGlobal.uJobOperations.Declare("uJobOperations")
+Variable.UDT.uExtraText.Define("Part",String,Part)
+'Variable.UDT.uExtraText.Define("Text_Sequence",String,Text_Sequence)
+Variable.UDT.uExtraText.Define("Text_Line1",String,Text_Line1)
+Variable.UDT.uExtraText.Define("Text_Line2",String,Text_Line2)
+Variable.UDT.uExtraText.Define("Text_Line3",String,Text_Line3)
+Variable.UDT.uExtraText.Define("Text_Line4",String,Text_Line4)
+Variable.UDT.uExtraText.Define("Text_Line5",String,Text_Line5)
+Variable.uGlobal.uExtraText.Declare("uExtraText")
+Variable.UDT.uInventory2.Define("Part",String,Part)
+Variable.UDT.uInventory2.Define("Description_2",String,Description_2)
+Variable.UDT.uInventory2.Define("Description_3",String,Description_3)
+Variable.uGlobal.uInventory2.Declare("uInventory2")
+Variable.UDT.uPartText.Define("Part",String,Part)
+Variable.UDT.uPartText.Define("Text_Seq",Long,Text_Seq)
+Variable.UDT.uPartText.Define("Text_Line",String,Text_Line)
+Variable.uGlobal.uPartText.Declare("uPartText")
+Variable.UDT.uBITable.Define("Terminal",String,Terminal)
+Variable.UDT.uBITable.Define("Job",String,Job)
+Variable.UDT.uBITable.Define("Suffix",String,Suffix)
+Variable.UDT.uBITable.Define("Part",String,Part)
+Variable.UDT.uBITable.Define("Location",String,Location)
+Variable.UDT.uBITable.Define("Customer",String,Customer)
+Variable.UDT.uBITable.Define("Seq",String,Seq)
+Variable.UDT.uBITable.Define("P_ID_Num",String,P_ID_Num)
+Variable.UDT.uBITable.Define("Qty_Open",Float,Qty_Open)
+Variable.UDT.uBITable.Define("Lead_Time",String,Lead_Time)
+Variable.UDT.uBITable.Define("Mat_Part",String,Mat_Part)
+Variable.UDT.uBITable.Define("MFG_Part",String,MFG_Part)
+Variable.UDT.uBITable.Define("MFG_Name",String,MFG_Name)
+Variable.UDT.uBITable.Define("Desc",String,Description)
+Variable.UDT.uBITable.Define("Mat_Part_Desc",String,Mat_Part_Desc)
+Variable.uGlobal.uBITable.Declare("uBITable")
+Variable.UDT.uJobOperationsCopy.Define("Sequence",String,Sequence)
+Variable.UDT.uJobOperationsCopy.Define("Part",String,Part)
+Variable.UDT.uJobOperationsCopy.Define("P_ID",String,Code_Sort_Oper)
+Variable.UDT.uJobOperationsCopy.Define("Lead_Time",String,Lead_Time)
+Variable.UDT.uJobOperationsCopy.Define("Job",String,Job)
+Variable.UDT.uJobOperationsCopy.Define("Suffix",String,Suffix)
+Variable.UDT.uJobOperationsCopy.Define("Units_Open",Float,Units)
+Variable.UDT.uJobOperationsCopy.Define("MFG_Part",String,MFG_Part)
+Variable.UDT.uJobOperationsCopy.Define("MFG_Name",String,MFG_Name)
+Variable.UDT.uJobOperationsCopy.Define("Mat_Part_Desc",String,Description)
+Variable.uGlobal.uJobOperationsCopy.Declare("uJobOperationsCopy")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Quote 4085-1
+'Tri-Mer Corp.
+'Coded by TRT
+'9/19/2013
+
+'Custom report that is grouped by Work Order # that will list all Material sequences.
+'Columns of the crystal report will include: Line, Sequence, TMC Part Number, MFG Part Number, Manufacturer, Description, P&ID#, Job QTY, Lead Time, QTY Recommended as ON-Hand Spares
+'Report will populate with values from newly created BI table that will store all necessary information for the report
+
+'bi crystal report needed:
+'GCG_3904_WO_Mat_Seq.Rpt
+'Tables needed
+'GCG_3904_WO_Mat_Rpt
+'GCG_3904_WO_MAT_DESC
+
+
+'GAB Screen:
+'2 text boxes, with browsers for the Job Master  information
+'list box used to populate the work order ranges
+'All work order check box
+'Add, Remove, and CLear command used for the list box.
+'Print Command to print the report
+
+'order of subroutine calls when print command is clicked
+'-JobOperations_Populate
+'-ExtraText_Populate
+'-WriteToTable
+'-Report_Print
+
+
+'Function.Intrinsic.Debug.BenchmarkModeEnable
+
+V.Local.bRet.Declare(Boolean)
+
+F.ODBC.Connection!conX.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+'check that the table is existing, custom table.
+'GCG_WO_Mat_Rpt
+F.ODBC.Connection!conX.TableExists("GCG_3904_WO_Mat_Rpt",V.Local.bRet)
+F.Intrinsic.Control.If(V.Local.bRet,=,False)
+	F.Intrinsic.UI.Msgbox("GCG_3904_WO_Mat_Rpt table not found.","Table Missing")
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+F.Intrinsic.Control.Else
+	Gui.SS_Form1..Show
+F.Intrinsic.Control.EndIf
+
+
+
+Program.Sub.Main.End
+
+program.sub.cmd_txtwostart_click.start
+F.Intrinsic.Control.SetErrorHandler("cmd_txtwostart_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+'Work Order Start Browser
+
+V.Local.sError.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sWO.Declare(String)
+
+
+F.Intrinsic.UI.Browser(1000,"",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,=,"***CANCEL***")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet(1).Trim,=,"")
+		'meaning no suffix
+		V.Local.sWO.Set(V.Local.sRet(0))
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Concat(V.Local.sRet(0),"-",V.Local.sRet(1),V.Local.sWO)
+	F.Intrinsic.Control.EndIf
+	Gui.SS_Form1.txtWOStart.Text(V.Local.sWO)
+	Gui.SS_Form1.txtWOEnd.Text(V.Local.sWO)
+F.Intrinsic.Control.EndIf
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_txtwostart_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3904_WO_Mat_Rpt.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmd_txtwostart_click.end
+
+program.sub.cmd_txtwoend_click.start
+F.Intrinsic.Control.SetErrorHandler("cmd_txtwoend_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+'Work Order Ending browser
+
+V.Local.sError.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sWO.Declare(String)
+
+
+F.Intrinsic.UI.Browser(1000,"",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,=,"***CANCEL***")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet(1).Trim,=,"")
+		'meaning no suffix
+		V.Local.sWO.Set(V.Local.sRet(0))
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Concat(V.Local.sRet(0),"-",V.Local.sRet(1),V.Local.sWO)
+	F.Intrinsic.Control.EndIf
+	Gui.SS_Form1.txtWOEnd.Text(V.Local.sWO)
+F.Intrinsic.Control.Endif
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmd_txtwoend_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3904_WO_Mat_Rpt.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmd_txtwoend_click.end
+
+program.sub.cmdadd_click.start
+'add an item to the list view.
+'when clicked
+
+'error check
+V.Local.sWOStart.Declare(String)
+V.Local.sWOEnd.Declare(String)
+
+V.Local.sWOStart.Set(V.Screen.SS_Form1!txtWOStart.Text)
+V.Local.sWOEnd.Set(V.Screen.SS_Form1!txtWOEnd.Text)
+
+F.Intrinsic.Control.If(V.Local.sWOStart.Trim,=,"")
+	F.Intrinsic.UI.Msgbox("Please select a Beginning Work Order #")
+	Gui.SS_Form1.txtWOStart.SetFocus
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.ElseIf(V.Local.sWOEnd.Trim,=,"")
+	F.Intrinsic.UI.Msgbox("Please select an Ending Work Order #")
+	Gui.SS_Form1.txtWOEnd.SetFocus
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Math.Add(V.Global.iLVItem,1,V.Global.iLVItem)
+Gui.SS_Form1.lvwWORanges.AddListItem(V.Global.iLVItem,V.Global.iLVItem)
+Gui.SS_Form1.lvwWORanges.SetListItemSubItemText(V.global.iLVItem,1,V.Screen.SS_Form1!txtWOStart.Text)
+Gui.SS_Form1.lvwWORanges.SetListItemSubItemText(V.Global.iLVItem,2,V.Screen.SS_Form1!txtWOEnd.Text)
+
+Gui.SS_Form1..ClearGroup(1)
+Gui.SS_Form1.txtWOStart.SetFocus
+
+F.Intrinsic.Control.exitsub
+
+
+program.sub.cmdadd_click.end
+
+program.sub.cmdremove_click.start
+'remove the selected row from the list view
+Gui.SS_Form1.lvwWORanges.RemoveItem(V.Global.iLVItem)
+
+program.sub.cmdremove_click.end
+
+program.sub.cmdclear_click.start
+'clear out the entire contensts of the list view for the Work Order
+
+Gui.SS_Form1.lvwWORanges.ClearItems
+
+V.Global.iLVItem.Set(0)
+Gui.SS_Form1..ClearGroup(1)
+Gui.SS_Form1.txtWOStart.SetFocus
+
+
+program.sub.cmdclear_click.end
+
+program.sub.cmdprint_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdprint_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+'print the report based on the information entered in the screen
+
+V.Local.sError.Declare(String)
+V.Local.sWORange.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sRow.Declare(String)
+V.Local.sCol.Declare(String)
+V.Local.iC.Declare(Long)
+V.Local.sJobStart.Declare(String)
+V.Local.sSuffixStart.Declare(String)
+V.Local.sJobEnd.Declare(String)
+V.Local.sSuffixEnd.Declare(String)
+V.Local.bRet.Declare(Boolean)
+
+
+V.uGlobal.uJobHeader.Redim(-1,-1)
+V.uGlobal.uJobOperations.Redim(-1,-1)
+V.uGlobal.uInvXRef.Redim(-1,-1)
+
+'job header query
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chkAllWO.Value,=,1)
+
+	'meaning that all work order checkbox is checked so we need to pull all records from the Job Header, Operations tables
+	F.ODBC.Connection!conX.OpenRecordsetRO("rst","Select Job, Suffix, Part, Location,Part_Description,Customer From JOB_Header Order By Job")
+	F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+		F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uglobal.uJobHeader",True)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conX!rst.Close
+F.Intrinsic.Control.Else
+	V.Local.sRet.Set(V.Screen.SS_Form1!lvwWORanges.ListViewContents)
+	F.Intrinsic.Control.If(V.Local.sRet.Trim,=,"")
+		F.Intrinsic.UI.Msgbox("Please make a selection.")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	'split by columns $@$
+	F.Intrinsic.String.Split(V.Local.sRet,"$@$",V.Local.sRow)
+	'now loop through the sRow till reach ubound
+	F.Intrinsic.Control.DoUntil(V.Local.iC,>,V.Local.sRow.UBound)
+		F.Intrinsic.String.Split(V.Local.sRow(v.Local.iC),"*!*",V.Local.sCol)
+		F.Intrinsic.String.IsInString(V.Local.sCol(1),"-",False,V.Local.bRet)
+		'split up the job and suffix variable stored in the list box for both the ending and begining.
+
+		F.Intrinsic.Control.If(V.Local.bRet,=,True)
+			F.Intrinsic.String.Split(V.Local.sCol(1),"-",V.Local.sRet)
+			V.Local.sJobStart.Set(V.Local.sRet(0))
+			V.Local.sSuffixStart.Set(V.Local.sRet(1))
+		F.Intrinsic.Control.Else
+			V.Local.sJobStart.Set(V.Local.sCol(1))
+			V.Local.sSuffixStart.Set("")
+		F.Intrinsic.Control.EndIf
+
+		'column 2 ending range work order
+		F.Intrinsic.String.IsInString(V.Local.sCol(2),"-",False,V.Local.bRet)
+		
+		F.Intrinsic.Control.If(V.Local.bRet,=,True)
+			F.Intrinsic.String.Split(V.Local.sCol(2),"-",V.Local.sRet)
+			V.Local.sJobEnd.Set(V.Local.sRet(0))
+			V.Local.sSuffixEnd.Set(V.Local.sRet(1))
+		F.Intrinsic.Control.Else
+			V.Local.sJobEnd.Set(V.Local.sCol(2))
+			V.Local.sSuffixEnd.Set("")
+		F.Intrinsic.Control.EndIf
+
+		F.Intrinsic.String.Build("Select Job, Suffix, Part, Location, Part_Description, Customer From Job_Header Where Job Between '{0}' AND '{1}' AND Suffix Between '{2}' AND '{3}'",V.Local.sJobStart,V.Local.sJobEnd,V.Local.sSuffixStart,V.Local.sSuffixEnd,V.Local.sSQL)
+			
+		F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+			F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uglobal.uJobHeader",True)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conX!rst.Close
+
+	 	F.Intrinsic.Math.Add(V.Local.iC,1,V.Local.iC)
+
+	F.Intrinsic.Control.Loop
+F.Intrinsic.Control.EndIf
+
+Gui.SS_Form1..Visible(false)
+F.Intrinsic.UI.InvokeWaitDialog("Processing...","Gathering records")
+'call the populate sub to get all the other records from the other places.
+F.Intrinsic.Control.CallSub(Joboperations_populate)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdprint_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3904_WO_Mat_Rpt.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdprint_click.end
+
+program.sub.ss_form1_unload.start
+'close connection and end the gab script
+
+F.ODBC.Connection!conX.Close
+F.Intrinsic.Control.End
+
+program.sub.ss_form1_unload.end
+
+program.sub.chkallwo_click.start
+F.Intrinsic.Control.SetErrorHandler("chkallwo_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+'check box to signify that all work orders will be pulled in.
+
+'we shoudl cleat the work order boxes, and the list box selections
+'then disable all the text boxes, commands, except, print, and everythign else associated with it.
+
+V.Local.sError.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.SS_Form1!chkAllWO.Value,=,1)
+	'meaning checked?
+	'text box groups
+	Gui.SS_Form1..ClearGroup(1)
+	Gui.SS_Form1.lvwWORanges.ClearItems
+	Gui.SS_Form1.txtWOStart.Enabled(False)
+	Gui.SS_Form1.txtWOEnd.Enabled(False)
+	Gui.SS_Form1.cmdAdd.Enabled(False)
+	Gui.SS_Form1.cmdRemove.Enabled(False)
+	Gui.SS_Form1.cmdClear.Enabled(False)
+	Gui.SS_Form1.lvwWORanges.Enabled(False)
+	Gui.SS_Form1.cmd_txtWOEnd.Enabled(False)
+	Gui.SS_Form1.cmd_txtWOStart.Enabled(False)
+	Gui.SS_Form1.cmdPrint.SetFocus
+F.Intrinsic.Control.Else
+	Gui.SS_Form1.txtWOStart.Enabled(True)
+	Gui.SS_Form1.txtWOEnd.Enabled(True)
+	Gui.SS_Form1.cmdAdd.Enabled(True)
+	Gui.SS_Form1.cmdRemove.Enabled(True)
+	Gui.SS_Form1.cmdClear.Enabled(True)
+	Gui.SS_Form1.lvwWORanges.Enabled(True)
+	Gui.SS_Form1.cmd_txtWOStart.Enabled(True)
+	Gui.SS_Form1.cmd_txtWOEnd.Enabled(True)
+	Gui.SS_Form1.txtWOStart.SetFocus
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chkallwo_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3904_WO_Mat_Rpt.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.chkallwo_click.end
+
+program.sub.lvwworanges_itemclick.start
+'set the item key
+V.Global.iLVItem.Set(V.Args.ItemKey)
+
+
+program.sub.lvwworanges_itemclick.end
+
+Program.Sub.JobOperations_Populate.Start
+F.Intrinsic.Control.SetErrorHandler("Populate_Err")
+F.Intrinsic.Control.ClearErrors
+
+
+'populate the additional information that is needed
+'from the Job_Operations table and the Inv_X_REF tables.
+V.Local.sError.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.iC.Declare(Long)
+V.Local.iP.Declare(Long)
+V.Local.sRet.Declare(String)
+
+
+V.Local.iC.Set(0)
+V.Local.iP.Set(0)
+
+
+'F.Intrinsic.Debug.Stop
+
+'need to see if any data exists within the Job Header UDT.
+F.Intrinsic.Control.If(V.uGlobal.uJobHeader.UBound,<,0)
+	F.Intrinsic.UI.Msgbox("No matching records found. Please verify proper selection")
+	F.Intrinsic.UI.CloseWaitDialog
+	Gui.SS_Form1..Show
+	F.Intrinsic.Control.Exitsub
+F.Intrinsic.Control.EndIf
+
+
+	
+
+'Populate the Job_Operations where LMO = 'M' going through all of our UDT Job Header Elements?
+F.Intrinsic.Control.Dountil(V.Local.iC,>,V.uGlobal.uJobHeader.UBound)
+	'Job Operations Query : Job, Suffix, Seq, Part, Code_Sort_Oper,Units_Open,Lead_Time
+	F.Intrinsic.String.Build("Select Job, Suffix, Seq, JO.Part, JO.Description,Code_Sort_Oper, Units, Lead_Time, MFG_Part, MFG_Name From V_Job_Operations AS JO Left Join V_INV_Cross_Ref As IX On JO.Part = IX.Part Where LMO = 'M' And Seq < '995000' AND Job = '{0}' And Suffix = '{1}' Order By Seq",V.uGlobal.uJobHeader(v.Local.iC)!Job,V.uGlobal.uJobHeader(v.Local.iC)!Suffix,V.Local.sSQL)
+	F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+		F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uglobal.uJobOperations",True)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conX!rst.Close
+	F.Intrinsic.Math.Add(V.Local.iC,1,V.Local.iC)
+F.Intrinsic.Control.Loop
+
+'populate our extra text udt information
+F.Intrinsic.Control.CallSub(Extratext_populate)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Populate_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3904_WO_Mat_Rpt.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.JobOperations_Populate.End
+
+Program.Sub.Report_Print.Start
+F.Intrinsic.Control.SetErrorHandler("Report_Print_Err")
+F.Intrinsic.Control.ClearErrors
+
+'Print the custom wo material report.
+
+V.Local.sError.Declare(String)
+V.Local.iRptID.Declare(Long)
+V.Local.sTerminal.Declare(String)
+V.Local.sParam.Declare(String)
+V.Local.sValue.Declare(String)
+
+
+V.Local.sTerminal.Set(V.Caller.Terminal)
+
+V.Local.sParam.Set("Terminal")
+V.Local.sValue.Set(V.Caller.Terminal)
+
+F.Global.BI.GetIDFromName("GCG_3904_WO_Mat_Seq.rpt",V.Local.iRptID)
+F.Intrinsic.Control.If(V.Local.iRptID,<,0)
+	F.Intrinsic.UI.Msgbox("The GCG_3904_WO_Mat_Seq Report is not active.","Report can not print")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Else
+	'parameters wil be just terminal number
+	F.Global.BI.PrintReport(V.Local.iRptID,0,V.Local.sParam,V.Local.sValue,"",False)
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Report_Print_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3904_WO_Mat_Rpt.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Report_Print.End
+
+Program.Sub.WritetoTable.Start
+F.Intrinsic.Control.SetErrorHandler("WritetoTable_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iC.Declare(String)
+V.Local.iP.Declare(Long)
+V.Local.sRet.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.iUB.Declare(Long)
+
+V.Local.iC.Set(0)
+V.Local.iP.Set(0)
+
+
+V.uGlobal.uBITable.Redim(-1,-1)
+
+'now we are going to populate our custom table with the Terminal, Job, Suffix, Part, Location, Desc, Customer, Seq, P_ID_Num(CODE_SORT_OPER), Qty_Open,Lead_Time,Mat_Part
+'loop through our job header udt, finding references to our job operations
+'for sake of speed we are going to combine necessar information into a udt
+'then write that udt to the table.
+'F.Intrinsic.Debug.InvokeDebugger
+'F.Intrinsic.Debug.Stop
+
+F.Intrinsic.Control.DoUntil(V.Local.iC,>,V.uGlobal.uJobHeader.UBound)
+	F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uJobOperations!Job,V.uGlobal.uJobHeader(v.Local.iC)!Job,V.uGlobal.uJobOperations!Suffix,V.uGlobal.uJobHeader(v.Local.iC)!Suffix,V.Local.sRet)
+	
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+			F.Intrinsic.Control.For(V.Local.iP,V.Local.sRet.LBound,V.Local.sRet.UBound,1)
+
+				F.Intrinsic.Control.If(V.uGlobal.uBITable.UBound,=,-1)
+					V.Local.iUB.Set(0)
+					V.uGlobal.uBITable.Redim(0,0)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+					V.uGlobal.uBITable.RedimPreserve(0,V.Local.iUB)
+				F.Intrinsic.Control.EndIf
+				V.uGlobal.uBITable(V.local.iUB)!Job.Set(V.uGlobal.ujobHeader(v.local.ic)!Job)
+				V.uglobal.uBITable(v.local.iUB)!Suffix.set(V.uglobal.uJobHeader(v.local.ic)!Suffix)
+				V.uGlobal.uBITable(v.Local.iUB)!Part.Set(V.uglobal.uJobHeader(v.Local.iC)!Part)
+				V.uGlobal.uBITable(v.Local.iUB)!Location.Set(V.uglobal.ujobheader(v.local.ic)!Location)
+				V.uGlobal.uBITable(v.Local.iUB)!Desc.Set(V.uGlobal.uJobHeader(v.Local.iC)!Part_Desc)
+				V.uGlobal.uBITable(v.Local.iUB)!Customer.Set(V.uGlobal.uJobHeader(v.Local.iC)!Customer)
+				V.uGlobal.uBITable(v.Local.iUB)!Seq.Set(V.uGlobal.uJobOperations(v.Local.sRet(v.Local.iP))!Sequence)
+				V.uGlobal.uBITable(v.Local.iUB)!P_ID_Num.Set(V.uGlobal.uJobOperations(v.Local.sRet(v.Local.iP))!P_ID)
+				V.uGlobal.uBITable(v.Local.iUB)!Qty_Open.Set(V.uGlobal.uJobOperations(v.Local.sRet(v.Local.ip))!Units_Open)
+				V.uGlobal.uBITable(v.Local.iUB)!Lead_Time.Set(V.uGlobal.uJobOperations(v.Local.sRet(v.Local.iP))!Lead_Time)
+				V.uGlobal.uBITable(v.Local.iUB)!Mat_Part.Set(V.uGlobal.uJobOperations(v.Local.sRet(v.Local.iP))!Part)
+				V.uGlobal.uBITable(v.Local.iUB)!MFG_Part.Set(V.uGlobal.uJobOperations(v.Local.sRet(v.Local.iP))!MFG_Part)
+				V.uGlobal.uBITable(v.Local.iUB)!MFG_Name.Set(V.uglobal.uJobOperations(v.Local.sRet(v.Local.iP))!MFG_Name)
+				V.uGlobal.uBITable(v.Local.iUB)!Mat_Part_Desc.Set(V.uGlobal.uJobOperations(v.Local.sRet(v.Local.iP))!Mat_Part_Desc)
+
+
+		F.Intrinsic.Control.Next(V.Local.iP)
+
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Math.Add(V.Local.iC,1,V.Local.iC)
+F.Intrinsic.Control.Loop
+
+F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uBITable!Terminal,V.Caller.Terminal)
+
+F.Intrinsic.String.Concat("Delete From GCG_3904_WO_Mat_Rpt Where Terminal = '",V.Caller.Terminal,"'",V.Local.sSQL)
+F.ODBC.Connection!conX.Execute(V.Local.sSQL)
+
+F.ODBC.Connection!conX.OpenLocalRecordsetRw("RST","Select * From GCG_3904_WO_MAT_Rpt")
+'lets save the uBITable udt to the GCG_WO_MAT_rpt table
+F.Intrinsic.Variable.SaveUDTToRecordset("conx","rst","v.uGlobal.uBITable")
+F.ODBC.conX!rst.Close
+
+F.Intrinsic.Control.CallSub(Report_print)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("WritetoTable_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3904_WO_Mat_Rpt.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.WritetoTable.End
+
+Program.Sub.ExtraText_Populate.Start
+F.Intrinsic.Control.SetErrorHandler("ExtraText_Populate_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.iCount.Declare(Long)
+V.Local.iUB.Declare(Long)
+V.Local.iSeq.Declare(Long)
+V.Local.sRetInv.Declare(String)
+V.Local.sRetEXT.Declare(String)
+V.Local.iA.Declare(Long)
+V.Local.iT.Declare(Long)
+V.Local.iUBound.Declare(Long)
+V.Local.sPart.Declare(String)
+V.Local.sExtraText.Declare(String)
+
+V.uGlobal.uInventory2.Redim(-1,-1)
+V.uGlobal.uExtraText.Redim(-1,-1)
+V.uGlobal.uPartText.Redim(-1,-1)
+V.uGlobal.uJobOperationsCopy.Redim(0,0)
+
+V.Local.iA.Set(0)
+V.Local.iUB.Set(0)
+V.Local.iSeq.Set(1)
+
+'F.Intrinsic.Debug.Stop
+
+
+'going to copy the uJobOperations UDT into a separate udt,
+'flag duplicates and delete the flag, trying to eliminate duplication of text sequences per part and amount of processing time needed
+F.Intrinsic.Variable.UDTCopy(V.uGlobal.uJobOperations,V.uGlobal.uJobOperationsCopy,True)
+F.Intrinsic.Variable.UDTMultiFlagDuplicates(V.uGlobal.uJobOperationsCopy!Part)
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uJobOPerationsCOpy)
+
+
+
+F.Intrinsic.Control.For(V.Local.iCount,0,V.uGlobal.uJobOperationsCopy.UBound,1)
+'F.Intrinsic.Debug.InvokeDebugger
+'F.Intrinsic.Debug.Stop
+	V.Local.sPart.Set(V.uGlobal.uJobOperationsCopy(V.Local.iCount)!Part)
+	F.Intrinsic.String.Concat("Select Part, Description_2, Description_3 From Inventory_MST2 Where Part = '",V.Local.sPart.PSQLFriendly,"'",V.Local.sSQL)
+	F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+		F.Intrinsic.Control.If(V.ODBC.conX!rst.FieldValTrim!Description_2,<>,"")
+			F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","v.uglobal.uInventory2",True)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conX!rst.Close
+	
+	'F.Intrinsic.String.Concat("Select Part, Text_Sequence, Text_Line1, Text_Line2, Text_Line3, Text_Line4, Text_Line5 From V_Extra_Text Where Part = '",V.uGlobal.uJobOperationsCopy(v.Local.iCount)!Part,"' Order By Text_Sequence",V.Local.sSQL)
+	'Extra text has been moved from being held in 5 different lines to being held in a single line in Inv_Extra_Text where all 5 lines were combined on newlines. Here we split the text into 5 parts and assign the text to the UDT manually
+	F.Intrinsic.String.Build("SELECT Part, Text FROM V_Inv_Extra_Text WHERE Part = '{0}'",V.Local.sPart.PSQLFriendly,V.Local.sSQL)
+	F.ODBC.Connection!conX.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,!=,True)
+		F.Intrinsic.String.Split(V.ODBC.conX!rst.FieldVal!Text,V.Ambient.NewLine,V.Local.sExtraText)
+		'Redim to 5 total items so that items with less than 5 lines won't cause errors
+		V.Local.sExtraText.RedimPreserve(0,4)
+		F.Intrinsic.Math.Add(V.uGlobal.uExtraText.UBound,1,V.Local.iUBound)
+		V.uGlobal.uExtraText.RedimPreserve(V.uGlobal.uExtraText.LBound,V.Local.iUBound)
+		V.uGlobal.uExtraText(V.Local.iUBound)!Part.Set(V.uGlobal.uJobOperationsCopy(V.Local.iCount)!Part)
+		V.uGlobal.uExtraText(V.Local.iUBound)!Text_Line1.Set(V.Local.sExtraText(0))
+		V.uGlobal.uExtraText(V.Local.iUBound)!Text_Line2.Set(V.Local.sExtraText(1))
+		V.uGlobal.uExtraText(V.Local.iUBound)!Text_Line3.Set(V.Local.sExtraText(2))
+		V.uGlobal.uExtraText(V.Local.iUBound)!Text_Line4.Set(V.Local.sExtraText(3))
+		V.uGlobal.uExtraText(V.Local.iUBound)!Text_Line5.Set(V.Local.sExtraText(4))
+	F.Intrinsic.Control.EndIf
+	
+'	F.Intrinsic.Control.If(V.ODBC.conX!rst.EOF,<>,True)
+'		F.Intrinsic.Variable.LoadUDTFromRecordset("conX","rst","V.uglobal.uExtraText",True)
+'	F.Intrinsic.Control.EndIf
+	F.ODBC.conX!rst.Close
+
+F.Intrinsic.Control.Next(V.Local.iCount)
+
+'F.Intrinsic.Debug.Stop
+
+'F.Intrinsic.Debug.InvokeDebugger
+'F.Intrinsic.Debug.Stop
+'now we have to combine both the Inventory2  udt and extratext udt to one udt, keeping in mind the sequence of each part, storing the main description first then the alt 1 and 2, then the extra desciption fields
+'do this two times for the inventory DESCRIPTION REQUIRED
+'once for the inventory information from inve 2
+'once for the extra text table information
+
+F.Intrinsic.Control.For(V.Local.iCount,0,V.uGlobal.uJobOperationsCopy.UBound,1)
+	V.Local.sPart.Set(V.uGlobal.uJobOperationsCopy(v.Local.iCount)!Part)
+	F.Intrinsic.Debug.WatchVariable(V.Local.sPart)
+	'look for the part number in the OPerations table field part
+	'look for it in both the Inventory2 udt and extra text udt
+	F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uInventory2!Part,V.uGlobal.uJobOperationsCOpy(v.Local.iCount)!Part,V.Local.sRetInv)
+	F.Intrinsic.Variable.UDTMultiSeek(V.uGlobal.uExtraText!Part,V.uglobal.uJobOPerationsCOpy(v.Local.icount)!Part,V.Local.sRetEXT)
+
+	F.Intrinsic.Control.If(V.Local.sRetInv.Trim,<>,"")
+		F.Intrinsic.String.Split(V.Local.sRetInv,"*!*",V.Local.sRetInv)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Local.sRetEXT.Trim,<>,"")
+		F.Intrinsic.String.Split(V.Local.sRetEXT,"*!*",V.Local.sRetEXT)
+	F.Intrinsic.Control.EndIf
+	
+	'should only have one run of this for each part
+	
+	F.Intrinsic.Control.DoUntil(V.Local.iA,>,V.Local.sRetInv.UBound)
+		F.Intrinsic.Control.If(V.local.sRetInv(v.local.iA),<>,"")
+			'going to go twice, for description 1 and description 2
+			F.Intrinsic.Control.For(V.locaL.iT,2,3,1)
+
+			F.Intrinsic.Control.If(V.uGlobal.uPartText.UBound,=,-1)
+				V.uGlobal.uPartText.Redim(0,0)
+				V.Local.iSeq.Set(1)
+			F.Intrinsic.Control.Else
+				V.Local.iUB.Set(V.uGlobal.uPartText.UBound)
+				F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+				F.Intrinsic.Math.Add(V.Local.iSeq,1,V.Local.iSeq)
+				V.uGlobal.uPartText.RedimPreserve(0,V.Local.iUB)
+			F.Intrinsic.Control.EndIf
+			
+			V.uGlobal.uPartText(v.Local.iUB)!Part.Set(V.uGlobal.uInventory2(v.local.sRetInv(v.Local.iA))!Part)
+			V.uGlobal.uPartText(v.Local.iUB)!Text_Seq.Set(V.Local.iSeq)
+			V.uGlobal.uPartText(v.Local.iUB)!Text_Line.Set(V.uGlobal.uInventory2(v.local.sRetInv(v.Local.iA))!Description_[v.local.iT])
+
+			F.Intrinsic.Control.Next(V.Local.iT)
+
+		F.Intrinsic.Control.EndIf
+
+		F.Intrinsic.Math.Add(V.Local.iA,1,V.Local.iA)
+
+	F.Intrinsic.Control.Loop
+	V.Local.iA.set(0)
+'F.Intrinsic.Debug.InvokeDebugger
+'F.Intrinsic.Debug.Stop
+
+	F.Intrinsic.Control.DoUntil(V.Local.iA,>,V.Local.sRetEXT.UBound)
+		F.Intrinsic.Control.If(V.Local.sRetEXT(v.Local.ia),<>,"")
+			F.Intrinsic.Control.For(V.locaL.iT,1,5,1)
+
+				F.Intrinsic.Control.If(V.uGlobal.uPartText.UBound,=,-1)
+					V.uGlobal.uPartText.Redim(0,0)
+					V.Local.iSeq.Set(1)
+				F.Intrinsic.Control.Else
+					V.Local.iUB.Set(V.uGlobal.uPartText.UBound)
+					F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+					F.Intrinsic.Math.Add(V.Local.iSeq,1,V.Local.iSeq)
+					V.uGlobal.uPartText.RedimPreserve(0,V.Local.iUB)
+				F.Intrinsic.Control.EndIf
+
+				V.uGlobal.uPartText(v.Local.iUB)!Part.Set(V.uGlobal.uExtraText(v.local.sRetExt(v.Local.iA))!Part)
+				V.uGlobal.uPartText(v.Local.iUB)!Text_Seq.Set(V.Local.iSeq)
+				V.uGlobal.uPartText(v.Local.iUB)!Text_Line.Set(V.uGlobal.uExtraText(v.local.sRetExt(v.Local.iA))!Text_Line[v.local.iT])
+
+			F.Intrinsic.Control.Next(V.Local.iT)
+
+		F.Intrinsic.Control.EndIf
+
+		F.Intrinsic.Math.Add(V.Local.iA,1,V.Local.iA)
+	F.Intrinsic.Control.Loop
+	V.Local.iA.Set(0)
+	'going to start the sequence value over since we are going into a new part
+	V.Local.iSeq.Set(0)
+
+F.Intrinsic.Control.Next(V.Local.iCount)
+
+
+'going to flag all the udt elements that have blank descriptions
+F.Intrinsic.Variable.UDTMultiFlag(V.uGlobal.uPartText!Text_Line,"")
+'delete flag
+F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uPartText)
+
+'have to sequence our udt elements
+V.Local.iA.Set(0)
+V.Local.iSeq.set(0)
+V.Local.sPart.Set(V.uGlobal.uPartText(0)!Part)
+
+'F.Intrinsic.Control.For(V.Local.iA,>,V.uGlobal.uPartText.UBound,1)
+'	F.Intrinsic.Control.If(V.Local.sPart,<>,V.uGlobal.uPartText(v.Local.iA)!Part)
+'		'we start back at one.
+'		V.Local.iSeq.Set(0)
+'		V.Local.sPart.Set(V.uGlobal.uPartText(v.Local.iA)!Part)
+'	F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Math.Add(V.Local.iSeq,1,V.Local.iSeq)
+'	V.uGlobal.uPartText(v.Local.iA)!Text_Seq.Set(V.Local.iSeq)
+'F.Intrinsic.Control.Next(V.Local.iA)
+
+'now lets save our uPartText udt elements to the GCG_WO_Mat_Desc_rpt table?
+F.ODBC.Connection!conX.Execute("Delete From GCG_3904_WO_Mat_Desc")
+F.ODBC.Connection!conX.OpenLocalRecordsetRW("rst","Select * From GCG_3904_WO_Mat_Desc")
+
+F.Intrinsic.Variable.SaveUDTToRecordset("conX","rst",V.uGlobal.uPartText)
+
+F.Intrinsic.Control.CallSub(Writetotable)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("ExtraText_Populate_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3904_WO_Mat_Rpt.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.callsub(Ss_form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.ExtraText_Populate.End
+
+
